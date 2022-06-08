@@ -11,26 +11,25 @@ public class Calculator {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Operator: ");
         String op = br.readLine();
-        int sum = 0;
-        List<Integer> listOfStrings = new ArrayList<>();
+        Integer sum = 0;
+        List<Integer> listOfInts = new ArrayList<>();
 
-        Scanner sc = new Scanner(new FileReader("src/main/java/Donnees/mydoc.txt")).useDelimiter(",\\s*");
+        Scanner sc = new Scanner(new FileReader("src/main/java/Donnees/mydoc.txt"));
 
 
         while (sc.hasNext()) {
-            int number = sc.nextInt();
-            Integer.parseInt(String.valueOf(number));
-            listOfStrings.add(number);
+            Integer number = sc.nextInt();
+            listOfInts.add(number);
         }
 
 
-        for (int i = 0; i < listOfStrings.size(); i++) {
+        for (Integer i = 0; i < listOfInts.size(); i++) {
             if (op.equals("+")) {
-                sum += listOfStrings.get(i);
+                sum += listOfInts.get(i);
             } else if (op.equals("-")) {
-                sum -= listOfStrings.get(i);
+                sum -= listOfInts.get(i);
             } else {
-                sum *= listOfStrings.get(i);
+                sum *= listOfInts.get(i);
             }
         }
         System.out.println("Result: " + sum);
